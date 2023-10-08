@@ -22,6 +22,8 @@ public class TimerHouse : MonoBehaviour
 
     private float currentSeconds;
     private int timerDefault;
+    private bool start = false;
+    [SerializeField] GameObject Instructions;
     void Awake(){
         Instance = this;
     }
@@ -31,10 +33,13 @@ public class TimerHouse : MonoBehaviour
         timerDefault = 0;
         timerDefault += (seconds + (minutes * 60) + (hours * 60 * 60));
         currentSeconds = timerDefault;
+        Instructions.SetActive(true);
     }
 
     void Update()
     {
+        if(start){
+
         if((currentSeconds -= Time.deltaTime) <= 0)
         {
             TimeUp();
@@ -48,6 +53,14 @@ public class TimerHouse : MonoBehaviour
 
    
         }
+        }
+        else{
+            if(Input.GetMouseButtonDown(0)){
+                start = true;
+                Instructions.SetActive(false);
+            }
+        }
+        
     }
 
     private void TimeUp()
