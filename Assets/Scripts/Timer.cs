@@ -61,6 +61,7 @@ public class Timer : MonoBehaviour
             timerText.text = "00:00:00";
     
         anim.SetTrigger("FactoryOpen");
+        mang.GetComponent<factory>().isOver = true;
         
     }
 

@@ -16,6 +16,7 @@ public class factory : MonoBehaviour
     [SerializeField] private GameObject player;
 
     public bool isStarted = false;
+    public bool isOver = false;
 
     void Start()
     {
