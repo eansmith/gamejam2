@@ -16,6 +16,9 @@ public class Timer : MonoBehaviour
     public int hours;
 
     public Color fontColor;
+
+    AudioSource audio;
+    public AudioClip forest;
     
     [SerializeField] private Animator anim;
 
@@ -23,6 +26,7 @@ public class Timer : MonoBehaviour
 
     private float currentSeconds;
     private int timerDefault;
+
 
     [SerializeField] private GameObject mang;
 
@@ -32,6 +36,7 @@ public class Timer : MonoBehaviour
         timerDefault = 0;
         timerDefault += (seconds + (minutes * 60) + (hours * 60 * 60));
         currentSeconds = timerDefault;
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -63,6 +68,7 @@ public class Timer : MonoBehaviour
         anim.SetTrigger("FactoryOpen");
         mang.GetComponent<factory>().isOver = true;
         
+        // set audio.clip to the right AudioClip
     }
 
     public void addTime(int time){

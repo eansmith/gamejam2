@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/factory.unity
-    guid: 7826973e466307842af15e22a9b758b0
+    path: Assets/Scenes/TitleScene.unity
+    guid: ded7b8f2e9315dd4abd8dbdab76d3837
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 39e5a0540c08abe4dbe2769794409afb
   - enabled: 1
     path: Assets/Scenes/HousesScene.unity
     guid: 77ea72307229a474bbd3c469ebf43380
   - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: 39e5a0540c08abe4dbe2769794409afb
+    path: Assets/Scenes/factory.unity
+    guid: 7826973e466307842af15e22a9b758b0
   m_configObjects: {}
