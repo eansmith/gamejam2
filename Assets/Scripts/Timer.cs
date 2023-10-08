@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
     private float currentSeconds;
     private int timerDefault;
 
-    private GameObject mang;
+    [SerializeField] private GameObject mang;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {   
-        if(mang.isStarted){
+        if(mang.GetComponent<factory>().isStarted){
         if((currentSeconds -= Time.deltaTime) <= 0)
         {
             TimeUp();

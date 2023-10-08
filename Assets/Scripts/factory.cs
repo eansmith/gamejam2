@@ -12,10 +12,10 @@ public class factory : MonoBehaviour
     [SerializeField] private float rate = 0.2f;
         [SerializeField] private float time = 1f;
 
-    [SerializeField] private Camera introCam;
+    [SerializeField] private GameObject introCam;
     [SerializeField] private GameObject player;
 
-    public isStarted = false;
+    public bool isStarted = false;
 
     void Start()
     {
@@ -27,8 +27,9 @@ public class factory : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)){
             isStarted = true;
+            introCam.SetActive(false);
             player.SetActive(true);
-            
+
         }
     }
 
@@ -37,7 +38,8 @@ public class factory : MonoBehaviour
         if(isStarted){
         if(Random.Range(0f,1f)>rate){
             Random.Range(0,spawners.Length);
-            Instantiate(objects[Random.Range(0,objects.Length)], spawners[Random.Range(0,spawners.Length)].transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(objects[Random.Range(0,objects.Length)], spawners[Random.Range(0,spawners.Length)].transform.position, Quaternion.identity)  as GameObject;
+            obj.SetActive(true);
         }
         }
 
