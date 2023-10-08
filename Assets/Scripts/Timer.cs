@@ -24,6 +24,8 @@ public class Timer : MonoBehaviour
     private float currentSeconds;
     private int timerDefault;
 
+    private GameObject mang;
+
     void Start()
     {
         anim.SetTrigger("factory");
@@ -33,7 +35,8 @@ public class Timer : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if(mang.isStarted){
         if((currentSeconds -= Time.deltaTime) <= 0)
         {
             TimeUp();
@@ -46,6 +49,7 @@ public class Timer : MonoBehaviour
                 timerText.text = TimeSpan.FromSeconds(currentSeconds).ToString(@"hh\:mm\:ss");
 
    
+        }
         }
     }
 

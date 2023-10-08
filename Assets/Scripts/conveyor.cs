@@ -7,6 +7,8 @@ public class conveyor : MonoBehaviour
     public float speed;
     public Vector3 direction;
     public List<GameObject> onBelt;
+
+    
     // Start is called before the first frame update
     void Start()
     {
