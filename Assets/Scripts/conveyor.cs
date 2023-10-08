@@ -16,13 +16,18 @@ public class conveyor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         for(int i = 0; i <= onBelt.Count -1 ; i++){
             if(onBelt[i] == null){
                 onBelt.Remove(onBelt[i]);
 
             }
             else{
-                onBelt[i].GetComponent<Rigidbody>().AddForce(speed * direction * Time.deltaTime , ForceMode.Impulse);
+                onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction * Time.fixedDeltaTime;
             }
         }
     }
