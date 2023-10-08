@@ -16,7 +16,9 @@ public class eatCheese : MonoBehaviour
     void Update()
     {
         if(mang.GetComponent<factory>().isOver && Input.GetKeyDown(KeyCode.F)){
+            mang.GetComponent<factory>().endSeq();
             Destroy(this.gameObject);
+
         }
     }
 }

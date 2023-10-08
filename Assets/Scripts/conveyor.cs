@@ -8,6 +8,9 @@ public class conveyor : MonoBehaviour
     public Vector3 direction;
     public List<GameObject> onBelt;
 
+    public GameObject mang;
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -23,13 +26,19 @@ public class conveyor : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         for(int i = 0; i <= onBelt.Count -1 ; i++){
             if(onBelt[i] == null){
                 onBelt.Remove(onBelt[i]);
 
             }
             else{
-                onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction * Time.fixedDeltaTime;
+                if(mang.GetComponent<factory>().isStarted){
+                    onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction * Time.fixedDeltaTime;
+                }
+                else{
+                    onBelt[i].GetComponent<Rigidbody>().velocity = 0 * direction * Time.fixedDeltaTime;
+                }
             }
         }
     }

@@ -15,8 +15,16 @@ public class factory : MonoBehaviour
     [SerializeField] private GameObject introCam;
     [SerializeField] private GameObject player;
 
+    [SerializeField] private GameObject introImage;
+    [SerializeField] private GameObject[] ends;
+
+    
+
     public bool isStarted = false;
     public bool isOver = false;
+
+    public bool isEnd = false;
+    private int overIndex = 1;
 
     void Start()
     {
@@ -26,17 +34,38 @@ public class factory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)){
+        if(!isStarted && Input.GetMouseButtonDown(0)){
             isStarted = true;
             introCam.SetActive(false);
             player.SetActive(true);
 
         }
+        if (isOver && Input.GetMouseButtonDown(0)){
+            overIndex += 1;
+            for(int i = 0; i < ends.Length; i++){
+                if(i == overIndex){
+                    ends[i].SetActive(true);
+                }
+                else{
+                    ends[i].SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void endSeq(){
+        isStarted = false;
+        isOver = false;
+        isEnd = true;
+        introCam.SetActive(true);
+
+        player.SetActive(false);
+        ends[0].SetActive(true);
     }
 
 
     void gameTick() {
-        if(isStarted){
+        if(!isOver){
         if(Random.Range(0f,1f)>rate){
             Random.Range(0,spawners.Length);
             GameObject obj = Instantiate(objects[Random.Range(0,objects.Length)], spawners[Random.Range(0,spawners.Length)].transform.position, Quaternion.identity)  as GameObject;
