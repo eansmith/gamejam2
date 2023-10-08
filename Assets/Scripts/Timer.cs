@@ -16,6 +16,8 @@ public class Timer : MonoBehaviour
     public int hours;
 
     public Color fontColor;
+    
+    [SerializeField] private Animator anim;
 
     public bool showMilliseconds;
 
@@ -24,7 +26,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
+        anim.SetTrigger("factory");
         timerDefault = 0;
         timerDefault += (seconds + (minutes * 60) + (hours * 60 * 60));
         currentSeconds = timerDefault;
@@ -53,6 +55,9 @@ public class Timer : MonoBehaviour
             timerText.text = "00:00:00:000";
         else
             timerText.text = "00:00:00";
+    
+        anim.SetTrigger("FactoryOpen");
+        
     }
 
     public void addTime(int time){
