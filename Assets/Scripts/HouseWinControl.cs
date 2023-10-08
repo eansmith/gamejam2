@@ -12,14 +12,14 @@ public class HouseWinControl : MonoBehaviour
     [SerializeField] private GameObject Newspaper;
     bool win = false;
     bool timer = false;
+
      void Start()
     {
         UICheeseCounter.OnWin += CheeseCounter_OnWin;
         TimerHouse.OnTimeUp += TimerHouse_OnTimeUp;
-        WinMessage.SetActive(false);
-        LoseMessage.SetActive(false);
-        Newspaper.SetActive(false);
-
+        WinMessage?.SetActive(false);
+        LoseMessage?.SetActive(false);
+        Newspaper?.SetActive(false);
     }
 
     private void CheeseCounter_OnWin(object sender, System.EventArgs e){
@@ -59,7 +59,7 @@ public class HouseWinControl : MonoBehaviour
     void losers(){
         if(Input.GetMouseButtonDown(0)){
             Newspaper.SetActive(true);
-            news()
+            news();
         }
     }
     void news(){
