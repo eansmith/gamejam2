@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HouseWinControl : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class HouseWinControl : MonoBehaviour
     [SerializeField] private GameObject Newspaper;
     bool win = false;
     bool timer = false;
+    bool newspap = false;
 
      void Start()
     {
@@ -43,16 +45,22 @@ public class HouseWinControl : MonoBehaviour
        if(timer && !win){
         //player loses the game
         LoseMessage.SetActive(true);
+        losers();
        }
        if(timer && win){
         WinMessage.SetActive(true);
         winners();
        }
+
+       if(Input.GetKeyDown(KeyCode.Space) && newspap){
+            Debug.Log("new Scene");
+            SceneManager.LoadScene("HousesScene", LoadSceneMode.Single);
+        }
     }
 
     void winners(){
         if(Input.GetMouseButtonDown(0)){
-            //load the next scene
+            SceneManager.LoadScene("factory", LoadSceneMode.Single);
         }
     }
 
@@ -63,8 +71,6 @@ public class HouseWinControl : MonoBehaviour
         }
     }
     void news(){
-        if(Input.GetMouseButtonDown(0)){
-            //switch scenes
-        }
+        newspap = true;
     }
 }
