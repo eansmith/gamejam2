@@ -16,22 +16,27 @@ public class Timer : MonoBehaviour
     public int hours;
 
     public Color fontColor;
+    
+    [SerializeField] private Animator anim;
 
     public bool showMilliseconds;
 
     private float currentSeconds;
     private int timerDefault;
 
+    [SerializeField] private GameObject mang;
+
     void Start()
     {
-
+        anim.SetTrigger("factory");
         timerDefault = 0;
         timerDefault += (seconds + (minutes * 60) + (hours * 60 * 60));
         currentSeconds = timerDefault;
     }
 
     void Update()
-    {
+    {   
+        if(mang.GetComponent<factory>().isStarted){
         if((currentSeconds -= Time.deltaTime) <= 0)
         {
             TimeUp();
@@ -45,6 +50,7 @@ public class Timer : MonoBehaviour
 
    
         }
+        }
     }
 
     private void TimeUp()
@@ -53,6 +59,10 @@ public class Timer : MonoBehaviour
             timerText.text = "00:00:00:000";
         else
             timerText.text = "00:00:00";
+    
+        anim.SetTrigger("FactoryOpen");
+        mang.GetComponent<factory>().isOver = true;
+        
     }
 
     public void addTime(int time){
