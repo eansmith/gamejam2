@@ -9,6 +9,7 @@ public class HouseWinControl : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject WinMessage;
     [SerializeField] private GameObject LoseMessage;
+    [SerializeField] private GameObject Newspaper;
     bool win = false;
     bool timer = false;
      void Start()
@@ -17,6 +18,7 @@ public class HouseWinControl : MonoBehaviour
         TimerHouse.OnTimeUp += TimerHouse_OnTimeUp;
         WinMessage.SetActive(false);
         LoseMessage.SetActive(false);
+        Newspaper.SetActive(false);
 
     }
 
@@ -36,19 +38,33 @@ public class HouseWinControl : MonoBehaviour
        if(!timer && win){
         //Player wins the game
         WinMessage.SetActive(true);
+        winners();
        } 
        if(timer && !win){
         //player loses the game
-        LoseMessage.SetActive(false);
+        LoseMessage.SetActive(true);
        }
        if(timer && win){
         WinMessage.SetActive(true);
+        winners();
        }
     }
 
     void winners(){
-        if(Input.GetKeyDown(KeyCode.Space)){
-            
+        if(Input.GetMouseButtonDown(0)){
+            //load the next scene
+        }
+    }
+
+    void losers(){
+        if(Input.GetMouseButtonDown(0)){
+            Newspaper.SetActive(true);
+            news()
+        }
+    }
+    void news(){
+        if(Input.GetMouseButtonDown(0)){
+            //switch scenes
         }
     }
 }
