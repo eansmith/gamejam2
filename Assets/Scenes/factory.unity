@@ -857,7 +857,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &219172984
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3666,7 +3666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1013027887
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3797,7 +3797,7 @@ GameObject:
   - component: {fileID: 1034000773}
   - component: {fileID: 1034000772}
   m_Layer: 0
-  m_Name: cheese
+  m_Name: cheeseClip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3815,6 +3815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22de3f4ce84ff4445b5afa654d9c550c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  msg: {fileID: 1013027886}
 --- !u!65 &1034000773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4012,7 +4013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c506c64f53c559f459596f9280e95127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mang: {fileID: 0}
+  mang: {fileID: 884193306}
 --- !u!1 &1143605677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217177203704626739, guid: 6c7792b2a7803ef49b8c6c5c20a85db0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

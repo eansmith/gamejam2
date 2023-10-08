@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class fScreen : MonoBehaviour
 {
+    [SerializeField] private GameObject msg;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,8 @@ public class fScreen : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter(Collider col){
+       msg.SetActive(true);
     }
 }
